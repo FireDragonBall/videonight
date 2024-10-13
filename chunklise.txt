@@ -1,0 +1,8 @@
+Acceptance Criteria (AC):
+
+1. make json from the file to a dictionary
+2. find how to iterate through the 'description' variable of the json (remember to convert to a dict in python!)
+3. when iterating, find a way to count each of the descriptions (should be 8808)
+4. following that, find a way to count the amount of characters (letters, special characters, space ect.) in each description string
+5. use that for iterate through all descriptions and only count the ones that have 30 characters or more (or try 40, 50, 20, ect... if that gives you 0 or 8808)
+B. bonus: use the new data to make a graph to display to your future boss for through github :)
