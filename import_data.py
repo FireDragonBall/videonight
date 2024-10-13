@@ -16,7 +16,7 @@ B. bonus: use the new data to make a graph to display to your future boss for th
 
 import pandas as pd
 import json
-
+from matplotlib import pyplot as plt
 
 df = pd.read_csv("netflix_titles.csv")
 
@@ -31,18 +31,42 @@ df = pd.read_json("netflix_titles.json")
 
 netflix_dict = json.loads(json_data)
 
+final_data = {}
 result = []
 count = 0
 char_count = []
+title = []
 for a in netflix_dict:
-    result.append(a['description'])  
+    result.append(a['description'])
     if len(a['description']) >= 140:
         char_count.append(len(a['description']))
-    count += 1   
-# print(result)
-# print(count)
-print(f'{len(a['description'])/len(char_count) * 100} %')
+        title.append(a['title'])
+    count += 1
 
-    
+calculation = {len(a['description'])/len(char_count) * 100}
+number_char = len(char_count)
+print(number_char)
+#print(len(result))
+#print(count)
+print(f'percentage of descriptions with over 140 characters is {calculation} %\n')
 
- 
+# bonus: use the new data to make a graph to display
+# barplot to show the amount that are more than 140 of characters for a single description. in assending order
+#print(len(char_count))
+
+final_data['percentage'] = calculation
+final_data['number over 140'] = number_char
+final_data['total number'] = count
+
+df = pd.DataFrame(dict(title=title,description_char_count=char_count), columns=['title','description_char_count'])
+df_sorted = df.sort_values('description_char_count')
+print(df_sorted)
+fig = plt.figure(figsize =(10, 7))
+plt.bar('title','description_char_count', data=df_sorted)
+plt.show()
+
+#pretty_data = json.dumps(final_data, indent=4)
+
+#print(pretty_data)
+
+
