@@ -50,13 +50,7 @@ print(number_char)
 #print(count)
 print(f'percentage of descriptions with over 140 characters is {calculation} %\n')
 
-# bonus: use the new data to make a graph to display
 # barplot to show the amount that are more than 140 of characters for a single description. in assending order
-#print(len(char_count))
-
-final_data['percentage'] = calculation
-final_data['number over 140'] = number_char
-final_data['total number'] = count
 
 df = pd.DataFrame(dict(title=title,description_char_count=char_count), columns=['title','description_char_count'])
 df_sorted = df.sort_values('description_char_count')
@@ -64,9 +58,5 @@ print(df_sorted)
 fig = plt.figure(figsize =(10, 7))
 plt.bar('title','description_char_count', data=df_sorted)
 plt.show()
-
-#pretty_data = json.dumps(final_data, indent=4)
-
-#print(pretty_data)
 
 
