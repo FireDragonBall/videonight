@@ -1,5 +1,8 @@
 ## Description
 
+![videonight_graph](https://github.com/user-attachments/assets/a10b30db-b683-4777-b6a0-ce897b30fbd3)
+
+
 This is an data science project importing a csv from a movie site to a graph.
 
 ## Running the Application
